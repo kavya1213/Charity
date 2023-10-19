@@ -1,0 +1,125 @@
+/* Change Brand Font */
+.navbar-brand{
+  font-family: 'Sans-serif';
+  font-size: 35px;
+  font-weight: bold;
+}
+
+/* Change Navigation Color */
+.nav-link,.dropdown-item{
+  color: white !important;
+  font-size : 20px
+}
+.nav-link:hover{
+  color: green !important;
+  background-color : red;
+  border-radius : 30px;
+}
+
+
+
+/* Change Footer Social Icon Color */
+#footer a,#contact a{
+  color:  #EE1D29;
+}
+#footer a:hover {
+  color: yellow;
+}
+
+#contact a:hover {
+  color: blue;
+}
+
+
+/*scroll button start*/
+#scrollbtn
+{
+
+position:fixed;
+bottom:20px;
+right:40px;
+z-index:99;
+border:none;
+color:red;
+background:#00abff;
+padding:10px;
+border-radius:10px;
+}
+/*scroll button end*/
+
+html{
+scroll-behavior:smooth;
+}
+
+#login
+{
+background-size : 100%;
+background-position : 0px 80px;
+background-repeat : no-repeat;
+opacity : 0.8
+}
+
+#signupform{
+background : url('/static/images/bg_texture.png');
+color : white;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.slowFade {
+    display: flex;
+    align-items: flex-start;
+    background: #fff;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+.slowFade .slide img {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    background: #000;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    opacity: 0;
+    transform: scale(1.5) rotate(15deg);
+    -webkit-animation: slowFade 32s infinite;
+            animation: slowFade 32s infinite;
+}
+.slowFade .slide:nth-child(3) img {
+    -webkit-animation-delay: 8s;
+            animation-delay: 8s;
+}
+.slowFade .slide:nth-child(2) img {
+    -webkit-animation-delay: 16s;
+            animation-delay: 16s;
+}
+.slowFade .slide:nth-child(1) img {
+    -webkit-animation-delay: 24s;
+            animation-delay: 24s;
+}
+@keyframes slowFade {
+    25% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+    40% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes slowFade {
+    25% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+    40% {
+        opacity: 0;
+    }
+}
+

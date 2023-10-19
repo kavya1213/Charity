@@ -1,0 +1,116 @@
+{% extends 'donor_base.html' %}
+{% block main  %}
+
+{% load static %}
+<html>
+<head>
+
+</head>
+<body id="login" style = "background-image : url({% static 'images/donations.jpg' %})">
+
+<center>
+      <h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva" align="center"> PAYMENT DETAIL </h1>
+</center><center>
+<div style="width:55%;background-color:lightsky" class="jumbotron">
+
+<div class="container">
+    <div class="row">
+        <!-- You can make it whatever width you want. I'm making it full width
+             on <= small devices and 4/12 page width on >= medium devices -->
+        <div class="col-xs-4 col-md-4">
+            <img style="width:150px;height:100px" class="img-responsive pull-right" src="{% static 'images/atm1.jpg'%}">
+        </div>
+        <div class="col-xs-4 col-md-4">
+            <img style="width:150px;height:100px" class="img-responsive pull-right" src="{% static 'images/atm2.jpg'%}">
+        </div>
+        <div class="col-xs-4 col-md-4">
+            <img style="width:150px;height:100px" class="img-responsive pull-right" src="{% static 'images/atm3.jpg'%}">
+        </div>
+    </div>
+
+     <form action="" method="POST">
+         {% csrf_token %}
+
+
+ <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label  style="margin:10px" for="cardNumber">CARD NUMBER</label>
+                                    <div class="ioup">
+                                        <input style="margin:10px"
+                                            type="tel"
+                                            class="form-control"
+                                            name="cardnumber"
+                                            placeholder="Valid Card Number"
+                                            autocomplete="cc-number"
+                                            required autofocus
+                                        />
+                                        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class=" col-md-12">
+                                <div class="form-group">
+                                    <label  style="margin:10px" for="cardExpiry"><span class="hidden-xs"></span><span class="visible-xs-inline">EXPIRY</span> DATE</label>
+                                    <input style="margin:10px"
+                                        type="tel"
+                                        class="form-control"
+                                        name="cardex"
+                                        placeholder="MM / YY"
+                                        autocomplete="cc-exp"
+                                        required
+                                    />
+                                </div>
+                            </div><br>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label style="margin:10px" for="cardCVC">CVC CODE</label>
+                                    <input style="margin:10px"
+                                        type="number"
+                                        class="form-control"
+                                        name="cvc"
+                                        placeholder="CVC"
+                                        autocomplete="cc-csc"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+           <div class="col-md-12">
+            <div class="form-group">
+                <label style="margin:10px">Amount</label>
+                <input style="" type="text" name="amount" class="form-control" placeholder="Enter Amount">
+            </div>
+        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input style="color:blue;font-size:20px" type="submit" class="btn btn-success btn-lg btn-block" name="PAYMENT" value="PAYMENT">
+                     </div>
+                        </div>
+                        <div class="row" style="display:none;">
+                            <div class="col-xs-12">
+                                <p class="payment-errors"></p>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+</div>
+ </body>
+</center>
+</html>
+{% if error == "no" %}
+<script>
+    alert('Fund Donation Has Been Successful.');
+    window.location=('{% url 'donation_history' %}');
+</script>
+{% endif %}
+{% if error == "yes" %}
+<script>
+    alert('Something Went Wrong. Please try again');
+</script>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends 'admin_base.html' %}
+{% block main  %}
+
+
+<div class="row">
+    <div class="col-sm-3 p-2">
+        <div class="card shadow bg-dark">
+            <div class="card-body">
+            <h4 class="text-light">Total Donations</h4>
+            <h5 style="color : #F1948A">{{totaldonations}}</h5>
+        </div>
+        <div class="card-footer">
+            <a href="{% url 'all_donations' %}" class="text-warning">View Details >></a>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-3 p-2">
+        <div class="card shadow bg-dark">
+            <div class="card-body">
+                <h4 class="text-light">Total Donors</h4>
+                <h5 style="color : #F1948A">{{totaldonors}}</h5>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'manage_donor' %}" class="text-warning">View Details >></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3 p-2">
+        <div class="card shadow bg-dark">
+            <div class="card-body">
+            <h4 class="text-light">Total Volunteers</h4>
+            <h5 style="color : #F1948A">{{totalvolunteers}}</h5>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'accepted_volunteer' %}" class="text-warning">View Details >></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3 p-2">
+        <div class="card shadow bg-dark">
+            <div class="card-body">
+            <h4 class="text-light">New Donation Req</h4>
+            <h5 style="color : #F1948A"> {{totalpendingdonations}}</h5>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'pending_donation' %}" class="text-warning">View Details >></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4 p-2">
+        <div class="card shadow bg-dark">
+            <div class="card-body">
+            <h4 class="text-light">Total Accepted Donation</h4>
+            <h5 style="color : #F1948A"> {{totalaccepteddonations}}</h5>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'accepted_donation' %}" class="text-warning">View Details >></a>
+            </div>
+        </div>
+    </div>
+
+<div class="col-sm-4 p-2">
+        <div class="card shadow bg-dark">
+            <div class="card-body">
+            <h4 class="text-light">Total Donation Delivered</h4>
+            <h5 style="color : #F1948A"> {{totaldelivereddonations}}</h5>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'donationdelivered_admin' %}" class="text-warning">View Details >></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4 p-2">
+        <div class="card shadow bg-dark">
+            <div class="card-body">
+            <h4 class="text-light">Total Donation Area</h4>
+            <h5 style="color : #F1948A"> {{totaldonationareas}}</h5>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'manage_area' %}" class="text-warning">View Details >></a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<style>
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+/* Rounded border */
+hr.rounded {
+  border-top: 8px solid lightblue;
+  border-radius: 5px;
+}
+
+</style>
+
+
+<!--<footer class="site-footer">
+      <div class="container">
+
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <p style = "font-size : 30pt ; color : white ; font-weight : bold">
+
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All Rights Reserved <span style = "color : brown">|</span> <span style = "color : yellow">This website is made with <i class="fas fa-heart icon-heart text-danger" aria-hidden="true"></i> by </span><a class= "glow" href="#" target="_blank" >Pankaj Panjwani</a>
+
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </footer>-->
+
+
+
+{% endblock  %}

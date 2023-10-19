@@ -1,0 +1,133 @@
+{% extends 'volunteer_base.html' %}
+{% block main  %}
+<div class="card shadow">
+    <div class="card-body">
+
+        <h5 class="p-2" style="border-bottom: 2px solid orange;">Donation Collection Request Detail</h5>
+<div class="container-fluid">
+
+         <table class="table table-bordered">
+ <tr align="center">
+<td colspan="4" style="font-size:20px;color:red">
+ Donor Details</td></tr>
+
+    <tr>
+    <th>Donor Name</th>
+    <td>{{donation.donor.user.first_name}} {{donation.donor.user.last_name}}</td>
+    <th>Donor Contact</th>
+    <td>{{donation.donor.contact}}</td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td>{{donation.donor.user.username}}</td>
+    <th>Donor PIC</th>
+    <td><img src="{{donation.donor.userpic.url}}" width="50px" height="50px"></td>
+  </tr>
+
+             <tr align="center">
+<td colspan="4" style="font-size:20px;color:red">
+ Donation Details</td></tr>
+
+  <tr>
+    <th>Donation Name</th>
+    <td>{{donation.donationname}}</td>
+     <th>Donation PIC</th>
+    <td><img src="{{donation.donationpic.url}}" width="50px" height="50px"></td>
+  </tr>
+
+     <tr>
+    <th>Collection Location</th>
+    <td>{{donation.collectionloc}}</td>
+     <th>Donation Date</th>
+    <td>{{donation.donationdate}}</td>
+  </tr>
+
+     <tr>
+    <th>Status</th>
+         <td class="text-capitalize"><span class="bg-danger font-weight-bold text-light py-1 px-3 rounded-pill">{{donation.status}}</span></td>
+     <th>Updation Date</th>
+    <td>{{donation.updationdate}}</td>
+  </tr>
+
+     <tr>
+    <th>Admin Remark</th>
+    <td colspan="3">{{donation.adminremark}}</td>
+  </tr>
+
+
+
+     <tr>
+    <th>Donation Area</th>
+    <td colspan="3">{{donation.donationarea.areaname}}</td>
+
+  </tr>
+
+     <tr>
+    <th>Volunteer</th>
+    <td colspan="3">{{donation.volunteer.user.username}} [{{donation.volunteer.user.first_name}} {{donation.volunteer.user.last_name}}]</td>
+  </tr>
+
+
+
+
+
+
+             {% if not donation.volunteerremark %}
+ <form method="post">
+    {% csrf_token %}
+      <tr>
+    <th>Donation Received ?</th>
+    <td colspan="3">
+        <input type="radio" name="status" value="Donation Received" required> Donation Received
+         <input type="radio" name="status" value="Donation NotReceived" required> Donation Not Received
+
+    </td>
+  </tr>
+
+
+    <tr>
+                                                <th>Volunteer Remark</th>
+                                               <td colspan="3">
+                                                   <textarea class="form-control" placeholder="Volunteer Remark" name="volunteerremark" required></textarea>
+        </select>
+         </td>
+    </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td colspan="3">
+                                                        <button type="submit" class="btn btn-primary pull-left">
+        Update <i class="fa fa-arrow-circle-right"></i>
+                                </button>
+
+                                                    </td>
+                                                </tr>
+ </form>
+     {% else %}
+
+     <tr>
+    <th>Volunteer Remark</th>
+    <td colspan="3">{{donation.volunteerremark}}</td>
+  </tr>
+
+
+
+     {% endif %}
+
+</table>
+</div>
+</div>
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert('volunteer status and remark updated successfully.');
+    window.location=('{% url 'donationcollection_detail' donation.id %}');
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert('Something Went Wrong. Please try again');
+</script>
+{% endifequal %}
+
+{% endblock %}

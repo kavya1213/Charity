@@ -1,0 +1,58 @@
+{% load static %}
+<html>
+<head>
+
+</head>
+<body id="login" style = "background-image : url({% static 'images/pa.webp' %})">
+{% include 'navigation.html' %}
+<hr class="mt-0">
+
+<div class="row">
+  <div class="col-lg-5 m-auto">
+    <div class="card mt-5 bg-dark">
+      <div class="card-title text-center mt-3">
+          <img src="{% static 'images/useravatar.png' %}" width="150" height="150">
+          <h2 class="text-white">Donor Login</h2>
+      </div>
+      <div class="card-body">
+        <form method="post">
+          {% csrf_token %}
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-user fa-2x"></i>
+                </span>
+              </div>
+              <input type="text" name="emailid" class="form-control py-4" placeholder="Email ID">
+          </div>
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-lock fa-2x"></i>
+                </span>
+              </div>
+              <input type="password" name="pwd" class="form-control py-4" placeholder="Password">
+          </div>
+          <input type="submit" value="Login" class="btn btn-success px-5">
+          <a href="{% url 'donor_reg' %}" class="float-right mt-2 text-white">Create Account <i class="fas fa-angle-double-right"></i></a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+
+{% ifequal error "no" %}
+<script>
+    alert('logged in successfully');
+    window.location=('{% url 'donor_home' %}');
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert('Invalid Login Credentials,Try Again...');
+</script>
+{% endifequal %}

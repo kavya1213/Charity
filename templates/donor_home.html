@@ -1,0 +1,119 @@
+{% extends 'donor_base.html' %}
+{% block main  %}
+
+<div class="row">
+    <div class="col-sm-4 p-2">
+        <div class="card shadow bg-dark">
+            <div class="card-body">
+            <h4 class="text-light">My Total Donations</h4>
+            <h5 style="color : #F1948A">{{donationcount}}</h5>
+        </div>
+        <div class="card-footer">
+            <a href="{% url 'donation_history' %}" class="text-danger">View Details >></a>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-4 p-2">
+        <div class="card shadow bg-dark">
+            <div class="card-body">
+                <h4 class="text-light">My Accepted Donations </h4>
+                <h5 style="color : #F1948A">{{acceptedcount}}</h5>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'donation_history' %}" class="text-danger">View Details >></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4 p-2">
+        <div class="card shadow bg-dark">
+            <div class="card-body">
+            <h4 class="text-light">My Rejected Donations</h4>
+            <h5 style="color : #F1948A">{{rejectedcount}}</h5>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'donation_history' %}" class="text-danger">View Details >></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 p-2">
+        <div class="card shadow bg-dark">
+            <div class="card-body">
+            <h4 class="text-light">My Pending Donations</h4>
+            <h5 style="color : #F1948A">{{pendingcount}}</h5>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'donation_history' %}" class="text-danger">View Details >></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 p-2">
+        <div class="card shadow bg-dark">
+            <div class="card-body">
+            <h4 class="text-light">My Successfully Delivered Donations &#128516;</h4>
+            <h5 style="color : #F1948A">{{deliveredcount}}</h5>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'donation_history' %}" class="text-danger">View Details >></a>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+<style>
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+/* Rounded border */
+hr.rounded {
+  border-top: 8px solid lightblue;
+  border-radius: 5px;
+}
+
+</style>
+
+
+<footer class="site-footer">
+      <div class="container">
+
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <p style = "font-size : 30pt ; color : #FF0000 ; font-weight : bold">
+
+            <!--Copyright &copy;<script>document.write(new Date().getFullYear());</script> All Rights Reserved <span style = "color : brown">|</span> <span style = "color : black">This website is made with <i class="fas fa-heart icon-heart text-danger" aria-hidden="true"></i> by </span><a class= "glow" href="#" target="_blank" >Pankaj Panjwani</a>-->
+
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+
+
+{% endblock  %}
